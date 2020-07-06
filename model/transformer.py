@@ -416,8 +416,7 @@ class TransformerLayer(nn.Module):
             return hh, l, None
 
         attn_out_hl, attn = self.self_attn_hl(h, l, hh_mask)  # batch, seq_len, d_model
-        attn_out_hl = attn_out_hl.masked_fill(mask.unsqueeze(-1) == 0, 0)
-        hl = self.norm1(attn_out_hl)
+        hl = attn_out_hl.masked_fill(mask.unsqueeze(-1) == 0, 0)
 
         return hh, hl, attn
 

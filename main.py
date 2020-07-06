@@ -358,7 +358,7 @@ def load_model_decode(data):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Tuning with DLN')
+    parser = argparse.ArgumentParser(description='Tuning with DocL-NER')
     parser.add_argument('--config', help='Configuration File')
 
     parser.add_argument('--train_dir', default='data/conll2003/train.txt')
