@@ -1,6 +1,6 @@
 ## Introduction
 
-Codes for our IJCAI 2020 paper **Leveraging Document-Level Label Consistency for Named Entity Recognition**. 
+Codes for our paper **Uncertainty-Aware Sequence Labeling** and **Leveraging Document-Level Label Consistency for Named Entity Recognition**.
 
 ## Requirement
 ```
@@ -35,13 +35,24 @@ Blackburn NNP I-NP E-PER
 ## Usage
 
 ### training
-run:
+
+Run without document-level memory:
+```
+CUDA_VISIBLE_DEVICES=0 python main.py --train_dir 'data/conll2003/train.txt' --dev_dir 'data/conll2003/dev.txt' --test_dir 'data/conll2003/test.txt'  --model_dir 'outs' --word_emb_dir 'data/glove.6B.100d.txt --use_memory False'
+```
+
+Run with document-level memory:
 ```
 CUDA_VISIBLE_DEVICES=0 python main.py --train_dir 'data/conll2003/train.txt' --dev_dir 'data/conll2003/dev.txt' --test_dir 'data/conll2003/test.txt'  --model_dir 'outs' --word_emb_dir 'data/glove.6B.100d.txt'
 ```
 
 ### decoding
-run:
+Run without document-level memory:
+```
+CUDA_VISIBLE_DEVICES=0 python main.py --status decode --model_dir <model dir> --raw_dir <file to be predicted> --use_memory False
+```
+
+Run with document-level memory:
 ```
 CUDA_VISIBLE_DEVICES=0 python main.py --status decode --model_dir <model dir> --raw_dir <file to be predicted>
 ```
@@ -60,6 +71,14 @@ title = {{Leveraging Document-Level Label Consistency for Named Entity Recogniti
 publisher = {International Joint Conferences on Artificial Intelligence Organization},
 year = {2020}
 }
+@article{gui2021uncertainty,
+  title={Uncertainty-Aware Sequence Labeling},
+  author={Gui, Tao and Ye, Jiacheng and Zhou, Xiang and Zheng, Xiaoqing and Zhang, Qi},
+  journal={IEEE/ACM Transactions on Audio, Speech, and Language Processing},
+  year={2021},
+  publisher={IEEE}
+}
+
 ```
 ## Reference
 - [NCRF++](https://github.com/jiesutd/NCRFpp.git)  
